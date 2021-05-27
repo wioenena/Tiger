@@ -12,7 +12,26 @@ export enum Emojis {
 
 export class Tiger {
 
+    /**
+     *
+     * Settings to target.
+     * @private
+     * @type {IOptions}
+     * @memberof Tiger
+     */
     private _options: IOptions;
+
+
+    /**
+     * Creates an instance of Tiger.
+     * @param {IOptions} [options={
+     *         bold: false,
+     *         italic: false,
+     *         underline: false,
+     *         time: true
+     *     }]
+     * @memberof Tiger
+     */
     public constructor(options: IOptions = {
         bold: false,
         italic: false,
@@ -22,6 +41,13 @@ export class Tiger {
         this._options = options;
     }
 
+    /**
+     *
+     * The main function for logging.
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public write(...args: unknown[]) {
         if (this.options.bold)
             args = args.map((arg) => fmt.bold(arg as string));
@@ -41,22 +67,57 @@ export class Tiger {
 
     }
 
+    /**
+     *
+     * 
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public info(...args: unknown[]) {
         return this.write(`${fmt.yellow(`${Emojis.info} [ Info ] `)} `, ...args)
     }
 
+    /**
+     *
+     *
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public warn(...args: unknown[]) {
         return this.write(`${fmt.red(`${Emojis.warning} [ Warning ]`)}`, ...args);
     }
 
+    /**
+     *
+     *
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public succes(...args: unknown[]) {
         return this.write(`${fmt.green(`${Emojis.succes}`)} [ Succes ]`, ...args);
     }
 
+    /**
+     *
+     *
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public unknown(...args: unknown[]) {
         return this.write(`${fmt.gray(`${Emojis.unknown} [ Unknown ]`)}`, ...args);
     }
 
+    /**
+     *
+     *
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public debug(...args: unknown[]) {
         return this.write(fmt.rgb24(`${Emojis.debug} [ Debug ]`, {
             r: 252,
@@ -65,6 +126,14 @@ export class Tiger {
         }), ...args);
     }
 
+    /**
+     *
+     *
+     * @param {Rgb} color
+     * @param {...unknown[]} args
+     * @returns
+     * @memberof Tiger
+     */
     public remixColor(color: Rgb, ...args: unknown[]) {
         return this.write(fmt.rgb24(args.join(" "), color));
     }
@@ -87,6 +156,12 @@ export class Tiger {
     }
 }
 
+/**
+ *
+ *
+ * @export
+ * @interface IOptions
+ */
 export interface IOptions {
     bold?: boolean;
     italic?: boolean;
@@ -94,6 +169,12 @@ export interface IOptions {
     time?: boolean
 }
 
+/**
+ *
+ *
+ * @export
+ * @interface Rgb
+ */
 export interface Rgb {
     r: number;
     g: number;
