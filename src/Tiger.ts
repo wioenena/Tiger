@@ -3,7 +3,7 @@ import * as fmt from "https://deno.land/std@0.97.0/fmt/colors.ts";
 
 export enum Emojis {
     info = "⇑⇓",
-    warning = "✘",
+    error = "✘",
     succes = "✓",
     unknown = "➤",
     debug = "⚒"
@@ -75,7 +75,7 @@ export class Tiger {
      * @memberof Tiger
      */
     public info(...args: unknown[]) {
-        return this.write(`${fmt.yellow(`${Emojis.info} [ Info ] `)} `, ...args)
+        return this.write(`${fmt.yellow(`${Emojis.info} [ Info ]`)} `, ...args)
     }
 
     /**
@@ -85,8 +85,8 @@ export class Tiger {
      * @returns
      * @memberof Tiger
      */
-    public warn(...args: unknown[]) {
-        return this.write(`${fmt.red(`${Emojis.warning} [ Warning ]`)}`, ...args);
+    public error(...args: unknown[]) {
+        return this.write(`${fmt.red(`${Emojis.error} [ Warning ]`)}`, ...args);
     }
 
     /**
