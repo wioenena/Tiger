@@ -97,7 +97,7 @@ export class Tiger {
      * @memberof Tiger
      */
     public succes(...args: unknown[]) {
-        return this.write(`${fmt.green(`${Emojis.succes}`)} [ Succes ]`, ...args);
+        return this.write(`${fmt.green(`${Emojis.succes} [ Succes ]}`)}`, ...args);
     }
 
     /**
