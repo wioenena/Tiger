@@ -75,7 +75,7 @@ export class Tiger {
      * @memberof Tiger
      */
     public info(...args: unknown[]) {
-        return this.write(`${fmt.yellow(`${Emojis.info} [ Info ]`)} `, ...args)
+        return this.write(fmt.yellow(`${Emojis.info} [ Info ]`), ...args)
     }
 
     /**
@@ -86,7 +86,7 @@ export class Tiger {
      * @memberof Tiger
      */
     public error(...args: unknown[]) {
-        return this.write(`${fmt.red(`${Emojis.error} [ Warning ]`)}`, ...args);
+        return this.write(fmt.red(`${Emojis.error} [ Error ]`), ...args);
     }
 
     /**
@@ -108,7 +108,7 @@ export class Tiger {
      * @memberof Tiger
      */
     public unknown(...args: unknown[]) {
-        return this.write(`${fmt.gray(`${Emojis.unknown} [ Unknown ]`)}`, ...args);
+        return this.write(fmt.gray(`${Emojis.unknown} [ Unknown ]`), ...args);
     }
 
     /**
